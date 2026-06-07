@@ -1,4 +1,4 @@
-# 🚨 PyIDS — Python Intrusion Detection System
+# 🚨 IDS — Python Intrusion Detection System
 
 A real-time network intrusion detection system built in Python using Scapy.
 Detects 7 categories of attacks and generates a live HTML dashboard.
