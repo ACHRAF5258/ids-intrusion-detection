@@ -10,7 +10,7 @@ Detects 7 categories of attacks and generates a live HTML dashboard.
 ---
 
 ## Screenshot
-![IDS Dashboard](screenshots/ids_dashboard.png)
+![IDS Dashboard](https://github.com/ACHRAF5258/ids-intrusion-detection/blob/main/ids_dashboard.png)
 
 ---
 
