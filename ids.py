@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 ╔══════════════════════════════════════════════════════╗
-║        PyIDS — Python Intrusion Detection System     ║
-║        Author: [Your Name]                           ║
-║        GitHub Portfolio Project                      ║
+║        IDS — Python Intrusion Detection System     ║
+║        Author: med achraf htiwech                    ║
+║                                                      ║
 ╚══════════════════════════════════════════════════════╝
 
 Detects:
