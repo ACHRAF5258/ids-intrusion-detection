@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><title>PyIDS Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Segoe UI,Arial,sans-serif;background:#0a0f1e;color:#e0e8f0}
+.header{background:linear-gradient(135deg,#0d1b3e,#1a3a5c);padding:24px 32px;border-bottom:2px solid #4A90D9;display:flex;align-items:center;gap:16px}
+.header h1{font-size:22px;color:#fff}.header .sub{color:#8BBBDD;font-size:13px;margin-top:4px}
+.dot{width:10px;height:10px;border-radius:50%;background:#2ECC71;box-shadow:0 0 8px #2ECC71;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.container{padding:24px 32px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.stat-card{background:#111827;border:1px solid #1e3a5f;border-radius:10px;padding:20px;text-align:center}
+.stat-card .val{font-size:36px;font-weight:bold;color:#4A90D9}
+.stat-card .lbl{color:#8899AA;font-size:12px;margin-top:6px}
+.stat-card.critical .val{color:#E74C3C}.stat-card.high .val{color:#E67E22}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.card{background:#111827;border:1px solid #1e3a5f;border-radius:10px;padding:20px}
+.card h2{font-size:13px;color:#8BBBDD;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #1e3a5f;padding-bottom:8px}
+table{width:100%;border-collapse:collapse}
+th{background:#0d1b3e;color:#8BBBDD;padding:10px;text-align:left;font-size:12px;text-transform:uppercase}
+td{padding:9px 10px;border-bottom:1px solid #0d1b3e;font-size:13px}
+tr:hover td{background:#0d1b3e}
+.badge{padding:3px 10px;border-radius:12px;font-size:11px;font-weight:bold;color:#fff;display:inline-block}
+.sev-bar{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.sev-bar .label{width:80px;font-size:12px;color:#8BBBDD}
+.sev-bar .bar{height:14px;border-radius:4px;min-width:4px}
+.sev-bar .count{font-size:12px;color:#aaa;margin-left:6px}
+canvas{max-height:220px}
+</style></head><body>
+<div class="header"><div class="dot"></div>
+<div><h1>PyIDS Intrusion Detection System Dashboard</h1>
+<div class="sub">Session: 2026-06-07 10:00:00 | Report: 2026-06-07 14:40:07</div></div></div>
+<div class="container">
+<div class="stats">
+<div class="stat-card"><div class="val">8,472</div><div class="lbl">Packets Analyzed</div></div>
+<div class="stat-card"><div class="val">17</div><div class="lbl">Total Alerts</div></div>
+<div class="stat-card critical"><div class="val">3</div><div class="lbl">Critical Alerts</div></div>
+<div class="stat-card high"><div class="val">6</div><div class="lbl">High Alerts</div></div>
+</div>
+<div class="charts">
+<div class="card"><h2>Attack Distribution</h2><canvas id="pie"></canvas></div>
+<div class="card"><h2>Severity Breakdown</h2><div class="sev-bar"><div class="label">CRITICAL</div><div class="bar" style="width:36px;background:#E74C3C"></div><div class="count">3</div></div><div class="sev-bar"><div class="label">HIGH</div><div class="bar" style="width:72px;background:#E67E22"></div><div class="count">6</div></div><div class="sev-bar"><div class="label">MEDIUM</div><div class="bar" style="width:60px;background:#F39C12"></div><div class="count">5</div></div><div class="sev-bar"><div class="label">LOW</div><div class="bar" style="width:36px;background:#3498DB"></div><div class="count">3</div></div><br><h2 style="margin-top:12px">Attack Types</h2><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#E74C3C;margin-right:8px">&#9679;</span>PORT SCAN SYN <span style="float:right;color:#4A90D9">4</span></div><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#E67E22;margin-right:8px">&#9679;</span>TCP SYN FLOOD <span style="float:right;color:#4A90D9">2</span></div><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#F39C12;margin-right:8px">&#9679;</span>ARP SPOOFING <span style="float:right;color:#4A90D9">1</span></div><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#2ECC71;margin-right:8px">&#9679;</span>BRUTE FORCE SSH <span style="float:right;color:#4A90D9">5</span></div><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#3498DB;margin-right:8px">&#9679;</span>ICMP FLOOD <span style="float:right;color:#4A90D9">3</span></div><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#9B59B6;margin-right:8px">&#9679;</span>DNS AMPLIFICATION <span style="float:right;color:#4A90D9">1</span></div><div style="font-size:12px;color:#8BBBDD;padding:4px 0;border-bottom:1px solid #0d1b3e"><span style="color:#1ABC9C;margin-right:8px">&#9679;</span>LARGE PAYLOAD <span style="float:right;color:#4A90D9">1</span></div></div>
+</div>
+<div class="card"><h2>Alert Log</h2>
+<table><tr><th>Time</th><th>Severity</th><th>Attack Type</th><th>Source IP</th><th>Dest</th><th>Port</th><th>Detail</th></tr>
+<tr><td>2026-06-07 10:13:18</td><td><span class="badge" style="background:#E74C3C">CRITICAL</span></td><td>PORT SCAN XMAS</td><td>10.0.0.5</td><td>192.168.1.10</td><td>443</td><td style="color:#aaa;font-size:11px">25 ports probed</td></tr><tr><td>2026-06-07 10:11:02</td><td><span class="badge" style="background:#E67E22">HIGH</span></td><td>ICMP FLOOD</td><td>10.0.0.12</td><td>192.168.1.1</td><td>—</td><td style="color:#aaa;font-size:11px">50 ICMP packets</td></tr><tr><td>2026-06-07 10:09:30</td><td><span class="badge" style="background:#F39C12">MEDIUM</span></td><td>DNS AMPLIFICATION</td><td>8.8.8.8</td><td>192.168.1.5</td><td>53</td><td style="color:#aaa;font-size:11px">30 DNS responses</td></tr><tr><td>2026-06-07 10:07:44</td><td><span class="badge" style="background:#E74C3C">CRITICAL</span></td><td>TCP SYN FLOOD</td><td>10.0.0.3</td><td>192.168.1.1</td><td>80</td><td style="color:#aaa;font-size:11px">100 SYN packets</td></tr><tr><td>2026-06-07 10:05:11</td><td><span class="badge" style="background:#E67E22">HIGH</span></td><td>BRUTE FORCE SSH</td><td>10.0.0.8</td><td>192.168.1.20</td><td>22</td><td style="color:#aaa;font-size:11px">10 attempts to port 22</td></tr><tr><td>2026-06-07 10:03:22</td><td><span class="badge" style="background:#E67E22">HIGH</span></td><td>PORT SCAN SYN</td><td>10.0.0.5</td><td>192.168.1.10</td><td>8080</td><td style="color:#aaa;font-size:11px">15 ports probed</td></tr><tr><td>2026-06-07 10:02:15</td><td><span class="badge" style="background:#E74C3C">CRITICAL</span></td><td>ARP SPOOFING</td><td>192.168.1.99</td><td>LAN</td><td>—</td><td style="color:#aaa;font-size:11px">MAC changed aa:bb -> cc:dd</td></tr></table></div></div>
+<script>
+new Chart(document.getElementById("pie"),{type:"doughnut",data:{labels:["PORT SCAN SYN", "TCP SYN FLOOD", "ARP SPOOFING", "BRUTE FORCE SSH", "ICMP FLOOD", "DNS AMPLIFICATION", "LARGE PAYLOAD"],datasets:[{data:[4, 2, 1, 5, 3, 1, 1],backgroundColor:["#E74C3C", "#E67E22", "#F39C12", "#2ECC71", "#3498DB", "#9B59B6", "#1ABC9C"],borderWidth:0}]},options:{plugins:{legend:{labels:{color:"#8BBBDD",font:{size:11}}}}}})</script>
+</body></html>
